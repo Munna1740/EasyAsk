@@ -5,10 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginAndLogout {
+public class AddSites {
 
 	public static void main(String[] args) {
-		//set the driver
 		System.setProperty("webdriver.chrome.driver", "F:\\Software\\Java\\Tools\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver1 = new ChromeDriver();
 		driver1.manage().window().maximize();
@@ -27,22 +26,32 @@ public class LoginAndLogout {
 		WebElement login = driver1.findElement(By.className("btn-primary"));
 		login.click();
 		
-		WebElement account = driver1.findElement(By.xpath("//header/ul[2]/li[1]/a[1]"));
-		account.click();
+		WebElement site = driver1.findElement(By.linkText("Sites"));
+		site.click();
 		
-		WebElement logout = driver1.findElement(By.xpath("//header/ul[2]/li[1]/div[1]/a[2]"));
-		logout.click();
+		WebElement addSite = driver1.findElement(By.className("ladda-label"));
+		addSite.click();
+		
+		for( int i=0; i<3; i++) {
+		WebElement site_name = driver1.findElement(By.name("site_name"));
+		WebElement site_description = driver1.findElement(By.name("site_description"));
+		WebElement site_url = driver1.findElement(By.name("url"));
+		
+		//set the element input
+		site_name.sendKeys("Apple");
+		site_description.sendKeys("This is apple website");
+		site_url.sendKeys("https://www.apple.com/imac-24/why-mac/");
+		
+		
+		WebElement add_site = driver1.findElement(By.className("dropdown-toggle"));
+		add_site.click();
+		
+		WebElement add_site_new = driver1.findElement(By.linkText("Save and new item"));
+		add_site_new.click();
 		
 		}
 		
-//		//click on navbar
-//		WebElement navbar = driver1.findElement(By.className("dropdown-items"));
-//		navbar.click();
-//		
-//		//click on products
-//		WebElement products = driver1.findElement(By.xpath("//body/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[3]/a[1]"));
-//		products.click();
-	
 
+	}
 
 }

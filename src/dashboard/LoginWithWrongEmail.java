@@ -13,7 +13,7 @@ public class LoginWithWrongEmail {
 		driver1.manage().window().maximize();
 		driver1.get("http://3.236.8.217/admin/dashboard");
 		
-		for(int i=0; i<10; i++) {
+		
 			
 			WebElement email = driver1.findElement(By.name("email"));
 			WebElement password = driver1.findElement(By.name("password"));
@@ -25,7 +25,7 @@ public class LoginWithWrongEmail {
 			email.clear();
 			password.clear();
 			login.click();
-		}
+	
 		
 
 	}
